@@ -1,5 +1,4 @@
 import React from "react";
-
 import Image from "next/image";
 import PrimaryButton from "../PrimaryButton";
 
@@ -27,10 +26,9 @@ const Hero = () => {
         </div>
         <Image
           src="/images/hero-image.jpg"
-          width={500}
-          height={500}
+          width={640}
+          height={427}
           priority
-          style={{ width: "100%", height: "auto" }}
           className="rounded-full"
           alt="Dog with a caregiver"
         />

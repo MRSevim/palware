@@ -75,13 +75,7 @@ const HeadlineWithImage = ({ image }: { image: string }) => {
           <li className="li">Item 3</li>
         </ul>
       </div>
-      <Image
-        src={`/images/${image}`}
-        width={500}
-        height={500}
-        alt="Feature"
-        className="max-h-80 w-auto"
-      />
+      <Image src={`/images/${image}`} width={500} height={334} alt="Feature" />
     </div>
   );
 };

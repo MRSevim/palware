@@ -6,7 +6,7 @@ import PrimaryButton from "../PrimaryButton";
 const Hero = () => {
   return (
     <div className="my-25">
-      <div className="flex flex-col-reverse items-center lg:flex-row gap-4 text-center">
+      <div className="flex flex-col-reverse items-center lg:flex-row gap-8 text-center">
         <div>
           <h1 className="font-bold text-5xl">
             {" "}
@@ -29,6 +29,8 @@ const Hero = () => {
           src="/images/hero-image.jpg"
           width={500}
           height={500}
+          priority
+          style={{ width: "100%", height: "auto" }}
           className="rounded-full"
           alt="Dog with a caregiver"
         />

@@ -31,14 +31,14 @@ const Subscribe = () => {
       <input
         type="email"
         name="email"
-        placeholder="Enter your email"
+        placeholder="Enter email"
         className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-(--background) bg-white placeholder-gray-400"
         required
       />
       <button
         type="submit"
         disabled={isPending}
-        className={`p-3 rounded-lg color-(--foreground) transition-colors ${
+        className={`p-3 rounded-lg color-(--foreground) cursor-pointer transition-colors ${
           isPending
             ? "bg-gray-400 cursor-not-allowed"
             : "bg-(--background) hover:bg-(--hovered-background)"

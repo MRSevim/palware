@@ -5,9 +5,7 @@ const CenteredSmallContainer = ({
 }: {
   children: React.ReactNode;
 }) => {
-  return (
-    <div className="w-full max-w-lg mx-auto bg-slate-200 p-4">{children}</div>
-  );
+  return <div className="w-full max-w-lg mx-auto bg-slate p-4">{children}</div>;
 };
 
 export default CenteredSmallContainer;

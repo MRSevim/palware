@@ -5,7 +5,7 @@ const Faq = () => {
   const [active, setActive] = useState<string>("");
   return (
     <div className="my-25">
-      <div className="w-full bg-slate-200 p-4">
+      <div className="w-full bg-slate p-4">
         <h3 className="font-semibold text-xl text-center">
           Some Questions You Might Ask
         </h3>

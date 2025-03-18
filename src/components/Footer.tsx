@@ -2,6 +2,7 @@ import Link from "next/link";
 import Container from "./Container";
 import Subscribe from "./Subscribe";
 import BrandIcon from "./BrandIcon";
+import { LinkClassName } from "@/helpers";
 
 const Footer = () => {
   return (
@@ -24,7 +25,18 @@ const Footer = () => {
           </div>
           <Column />
           <Column />
-          <Column />
+          <div className="flex flex-col justify-center gap-4">
+            <p> Column</p>
+            <Link href="/services" className={LinkClassName}>
+              Services
+            </Link>
+            <Link href="/adopt" className={LinkClassName}>
+              Adopt
+            </Link>
+            <Link href="/contact" className={LinkClassName}>
+              Contact
+            </Link>
+          </div>
           <Subscribe />
         </div>
       </Container>
@@ -33,7 +45,7 @@ const Footer = () => {
 };
 
 const Column = () => {
-  const para = <p className="cursor-pointer hover:underline">Goes nowhere</p>;
+  const para = <p className={LinkClassName}>Goes nowhere</p>;
 
   return (
     <div className="flex flex-col justify-center gap-4">

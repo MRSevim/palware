@@ -18,7 +18,7 @@ const Hero = () => {
             eligendi eos tenetur adipisci laboriosam esse eveniet voluptatibus
           </h2>
           <div className="flex gap-2 items-center justify-center">
-            <PrimaryButton>Adopt</PrimaryButton>{" "}
+            <PrimaryButton href="/adopt">Adopt</PrimaryButton>{" "}
             <span className="font-light max-w-sm">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit.
             </span>

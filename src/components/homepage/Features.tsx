@@ -50,13 +50,19 @@ const Features = () => {
           </p>
         </FeatureWrapper>
       </div>
-      <HeadlineWithImage image="feature-1.jpg"></HeadlineWithImage>
-      <HeadlineWithImage image="feature-2.jpg"></HeadlineWithImage>
+      <HeadlineWithImage
+        image="feature-1.jpg"
+        alt="2 caregivers with dogs"
+      ></HeadlineWithImage>
+      <HeadlineWithImage
+        image="feature-2.jpg"
+        alt="cat behind bars"
+      ></HeadlineWithImage>
     </>
   );
 };
 
-const HeadlineWithImage = ({ image }: { image: string }) => {
+const HeadlineWithImage = ({ image, alt }: { image: string; alt: string }) => {
   return (
     <div className="flex flex-col-reverse gap-4 my-20 justify-between even:lg:flex-row-reverse lg:flex-row items-center">
       <div className="flex flex-col justify-center lg:mx-10">
@@ -75,15 +81,13 @@ const HeadlineWithImage = ({ image }: { image: string }) => {
           <li className="li">Item 3</li>
         </ul>
       </div>
-      <Image src={`/images/${image}`} width={500} height={334} alt="Feature" />
+      <Image src={`/images/${image}`} width={500} height={334} alt={alt} />
     </div>
   );
 };
 
 const FeatureWrapper = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <div className="p-5 text-center bg-slate-200 rounded-lg">{children}</div>
-  );
+  return <div className="p-5 text-center bg-slate rounded-lg">{children}</div>;
 };
 
 const HeaderDiv = ({ children }: { children: React.ReactNode }) => {

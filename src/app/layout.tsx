@@ -29,7 +29,9 @@ export default function RootLayout({
           referrerPolicy="no-referrer"
         />
       </head>
-      <body className={`${montSerrat.className}`}>
+      <body
+        className={`${montSerrat.className} flex flex-col min-h-screen justify-between`}
+      >
         <Header />
         {children}
         <Footer />

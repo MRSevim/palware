@@ -9,7 +9,7 @@ const FinalCta = () => {
         <p className="text-thin my-5">Tagline</p>
         <h2 className="font-bold text-2xl my-5">Looking for a friend?</h2>
         <div className="mb-5">
-          <PrimaryButton>Get one</PrimaryButton>
+          <PrimaryButton href="/adopt">Get one</PrimaryButton>
         </div>
       </CenteredSmallContainer>
     </div>

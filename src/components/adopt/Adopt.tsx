@@ -45,9 +45,10 @@ const Adopt = () => {
 
   return (
     <div className="my-25">
-      <h1 className="font-bold text-3xl">
+      <h1 className="font-bold text-3xl mb-5">
         Here are some of the available inhabitant
       </h1>
+
       <div className="relative overflow-hidden">
         {translateX > 0 && (
           <button
@@ -59,7 +60,7 @@ const Adopt = () => {
         )}
 
         <div
-          className="flex transition-transform duration-300 "
+          className="flex transition-transform duration-300"
           style={{ transform: `translateX(-${translateX}%)` }}
         >
           {inhabitants.map((inhabitant, index) => (
@@ -82,7 +83,7 @@ const Adopt = () => {
 
 const Inhabitant = ({ name, imageSrc }: { name: string; imageSrc: string }) => {
   return (
-    <div className="min-w-full md:min-w-1/2 lg:min-w-1/3 p-2">
+    <div className="flex-[0_0_auto] w-full md:w-1/2 lg:w-1/3 p-2 ">
       <div className="flex flex-col items-center p-3 bg-slate">
         <Image
           src={imageSrc}

@@ -10,7 +10,7 @@ const montSerrat = Montserrat({
 
 export const metadata: Metadata = {
   title: "Palware",
-  description: "Animal Shelter based on London",
+  description: "Animal Shelter based in London",
 };
 
 export default function RootLayout({

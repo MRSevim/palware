@@ -44,9 +44,9 @@ const Footer = () => {
   );
 };
 
-const Column = () => {
-  const para = <p className={LinkClassName}>Goes nowhere</p>;
+const para = <p className={LinkClassName}>Goes nowhere</p>;
 
+const Column = () => {
   return (
     <div className="flex flex-col justify-center gap-4">
       <p> Column</p>

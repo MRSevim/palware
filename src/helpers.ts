@@ -4,11 +4,6 @@ export const delay = (ms: number) =>
 
 export const LinkClassName = "cursor-pointer hover:underline";
 
-export const initialFormState = {
-  error: "",
-  successMessage: "",
-};
-
 export const getCapitalizedTextFromRoute = (val: string) => {
   return String(val).charAt(1).toUpperCase() + String(val).slice(2);
 };

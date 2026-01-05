@@ -1,6 +1,8 @@
 "use server";
 import { z } from "zod";
 import { delay } from "@/helpers";
+import { InitialContactState } from "@/components/contact/ContactForm";
+import { InitialSubscribeState } from "@/components/Subscribe";
 
 const subscribeSchema = z.object({
   email: z.string().email({
@@ -8,9 +10,14 @@ const subscribeSchema = z.object({
   }),
 });
 
-export const subscribeAction = async (formData: FormData) => {
+export const subscribeAction = async (
+  _initialFormState: InitialSubscribeState,
+  formData: FormData
+) => {
+  const email = formData.get("email") as string;
+
   const validatedFields = subscribeSchema.safeParse({
-    email: formData.get("email"),
+    email,
   });
 
   // Return error if the form data is invalid
@@ -20,6 +27,7 @@ export const subscribeAction = async (formData: FormData) => {
         validatedFields.error.flatten().fieldErrors.email?.[0] ||
         "Validation error",
       successMessage: "",
+      inputs: { email },
     };
   }
   // Wait for 400ms before returning success
@@ -37,29 +45,36 @@ const contactSchema = z.object({
   message: z.string().min(1, { message: "Message is required" }),
 });
 
-export const contactFormAction = async (formData: FormData) => {
-  const validatedFields = contactSchema.safeParse({
-    name: formData.get("name"),
-    email: formData.get("email"),
-    message: formData.get("message"),
-  });
+export const contactFormAction = async (
+  _initialFormState: InitialContactState,
+  formData: FormData
+) => {
+  const rawData = {
+    name: formData.get("name") as string,
+    email: formData.get("email") as string,
+    message: formData.get("message") as string,
+  };
+  const validatedFields = contactSchema.safeParse(rawData);
 
   // Return error if the form data is invalid
   if (!validatedFields.success) {
     const errorMessages = validatedFields.error.flatten().fieldErrors;
-    const firstError =
-      Object.values(errorMessages).flat()[0] || "Validation error";
 
     return {
-      error: firstError,
+      errors: {
+        name: errorMessages.name ? errorMessages.name[0] : "",
+        email: errorMessages.email ? errorMessages.email[0] : "",
+        message: errorMessages.message ? errorMessages.message[0] : "",
+      },
       successMessage: "",
+      inputs: rawData,
     };
   }
   // Wait for 400ms before returning success
   await delay(400);
 
   return {
-    error: "",
+    errors: { name: "", message: "", email: "" },
     successMessage: "Wow, This did nothing",
   };
 };

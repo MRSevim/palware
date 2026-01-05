@@ -15,7 +15,11 @@ const Alert = ({
       : "";
 
   return (
-    <div className={"p-2 text-sm rounded-lg " + str} role="alert">
+    <div
+      className={"p-2 text-sm rounded-lg " + str}
+      role="alert"
+      aria-live="polite"
+    >
       <span className="font-medium">{message}</span>
     </div>
   );

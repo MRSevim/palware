@@ -1,32 +1,35 @@
 "use client";
 
 import { subscribeAction } from "@/actions/actions";
-import { useState } from "react";
+import { useActionState } from "react";
 import Alert from "./Alert";
-import { initialFormState } from "@/helpers";
+
+export type InitialSubscribeState = {
+  error: string;
+  successMessage: string;
+  inputs?: { email: string };
+};
+
+const initialFormState: InitialSubscribeState = {
+  error: "",
+  successMessage: "",
+};
 
 const Subscribe = () => {
-  const [isPending, setIsPending] = useState(false);
-  const [state, setState] = useState(initialFormState);
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsPending(true);
-    setState(initialFormState);
-    const formData = new FormData(e.currentTarget);
-    const state = await subscribeAction(formData);
-    setState(state);
-    setIsPending(false);
-  };
+  const [state, action, isPending] = useActionState(
+    subscribeAction,
+    initialFormState
+  );
 
   return (
     <form
-      onSubmit={handleSubmit}
+      action={action}
       className="flex flex-col gap-4 p-6 bg-light-gray rounded-lg shadow-lg"
     >
       <input
         type="email"
         name="email"
+        defaultValue={state.inputs?.email}
         placeholder="Enter email"
         className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-(--background) bg-white placeholder-gray-400"
         required
@@ -42,12 +45,9 @@ const Subscribe = () => {
       >
         Subscribe to Newsletter
       </button>
-      {state.error ? (
-        <Alert type="error" message={state.error} />
-      ) : state.successMessage ? (
+      {state.error && <Alert type="error" message={state.error} />}
+      {state.successMessage && (
         <Alert type="success" message={state.successMessage} />
-      ) : (
-        <div className="invisible p-2 text-sm">123</div>
       )}
     </form>
   );

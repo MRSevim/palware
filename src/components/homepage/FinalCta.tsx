@@ -1,17 +1,16 @@
 import React from "react";
-import CenteredSmallContainer from "../CenteredSmallContainer";
 import PrimaryButton from "../PrimaryButton";
 
 const FinalCta = () => {
   return (
     <div className="my-25 text-center">
-      <CenteredSmallContainer>
+      <div className="w-full max-w-lg mx-auto bg-slate p-4">
         <p className="text-thin my-5">Tagline</p>
         <h2 className="font-bold text-2xl my-5">Looking for a friend?</h2>
         <div className="mb-5">
           <PrimaryButton href="/adopt">Get one</PrimaryButton>
         </div>
-      </CenteredSmallContainer>
+      </div>
     </div>
   );
 };

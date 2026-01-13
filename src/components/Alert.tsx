@@ -3,7 +3,9 @@ import React from "react";
 const Alert = ({
   message,
   type,
+  id,
 }: {
+  id?: string;
   message: string;
   type: "success" | "error";
 }) => {
@@ -16,9 +18,10 @@ const Alert = ({
 
   return (
     <div
+      id={id}
       className={"p-2 text-sm rounded-lg " + str}
-      role="alert"
-      aria-live="polite"
+      role={type === "error" ? "alert" : "status"}
+      aria-atomic="true"
     >
       <span className="font-medium">{message}</span>
     </div>

@@ -1,4 +1,3 @@
-import Container from "@/components/Container";
 import Image from "next/image";
 import React from "react";
 import WideButton from "../WideButton";

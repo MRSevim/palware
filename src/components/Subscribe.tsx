@@ -37,6 +37,7 @@ const Subscribe = () => {
       <button
         type="submit"
         disabled={isPending}
+        aria-describedby="popup"
         className={`p-3 rounded-lg color-(--foreground) cursor-pointer transition-colors ${
           isPending
             ? "bg-gray-400 cursor-not-allowed"
@@ -45,9 +46,9 @@ const Subscribe = () => {
       >
         Subscribe to Newsletter
       </button>
-      {state.error && <Alert type="error" message={state.error} />}
+      {state.error && <Alert id="popup" type="error" message={state.error} />}
       {state.successMessage && (
-        <Alert type="success" message={state.successMessage} />
+        <Alert id="popup" type="success" message={state.successMessage} />
       )}
     </form>
   );

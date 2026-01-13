@@ -8,7 +8,7 @@ import { usePathname } from "next/navigation";
 const Header = () => {
   return (
     <header className="bg-(--background) p-4 relative">
-      <Container>
+      <Container isMain={false}>
         <div className="flex justify-between items-center">
           <Link href="/">
             <p className="font-bold text-xl">Palware</p>

@@ -40,6 +40,7 @@ const Adopt = () => {
           onClick={() => handleScrollClick("left")}
         >
           <Icon type="chevron-left" />
+          <p className="sr-only">Go left on carousel</p>
         </button>
 
         <div
@@ -55,7 +56,8 @@ const Adopt = () => {
           className="absolute right-0 top-1/2 z-10 bg-white p-2 rounded-full shadow cursor-pointer"
           onClick={() => handleScrollClick("right")}
         >
-          <Icon type="chevron-right" />
+          <Icon type="chevron-right" />{" "}
+          <p className="sr-only">Go right on carousel</p>
         </button>
       </div>
     </div>
@@ -66,12 +68,7 @@ const Inhabitant = ({ name, imageSrc }: { name: string; imageSrc: string }) => {
   return (
     <div className="flex-[0_0_auto] snap-start w-full md:w-1/2 lg:w-1/3 p-2 ">
       <div className="flex flex-col items-center p-3 bg-slate">
-        <Image
-          src={imageSrc}
-          width={372}
-          height={249}
-          alt={name + "'s image"}
-        ></Image>
+        <Image src={imageSrc} width={372} height={249} alt={name}></Image>
         <h2 className="font-bold text-xl mb-2">{name}</h2>
         <p>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Incidunt,

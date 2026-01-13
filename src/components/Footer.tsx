@@ -7,7 +7,7 @@ import { LinkClassName } from "@/helpers";
 const Footer = () => {
   return (
     <footer className="bg-(--background) p-4">
-      <Container>
+      <Container isMain={false}>
         <div className="grid custom-grid-template gap-8 justify-center items-center">
           <div className="flex flex-col gap-3 max-w-md">
             <Link href="/">
